@@ -3,13 +3,13 @@
 #
 
 Name:           linux-mainline
-Version:        5.1.0
-Release:        2
+Version:        5.2.1
+Release:        3
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.1.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.2.1.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -66,7 +66,7 @@ Requires:       linux-mainline-license = %{version}-%{release}
 Linux kernel build files and install script
 
 %prep
-%setup -q -n linux-5.1
+%setup -q -n linux-5.2.1
 
 cp %{SOURCE1} .
 
