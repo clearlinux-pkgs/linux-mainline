@@ -3,13 +3,13 @@
 #
 
 Name:           linux-mainline
-Version:        5.2.1
-Release:        4
+Version:        5.3.0
+Release:        5
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.2.1.tar.xz
+Source0:        https://git.kernel.org/torvalds/t/linux-5.3-rc6.tar.gz
 Source1:        config
 Source2:        cmdline
 
@@ -66,12 +66,9 @@ Requires:       linux-mainline-license = %{version}-%{release}
 Linux kernel build files and install script
 
 %prep
-%setup -q -n linux-5.2.1
+%setup -q -n linux-5.3-rc6
 
 cp %{SOURCE1} .
-
-cp -a /usr/lib/firmware/i915 firmware/
-cp -a /usr/lib/firmware/intel-ucode firmware/
 
 %build
 BuildKernel() {
