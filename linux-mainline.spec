@@ -3,13 +3,13 @@
 #
 
 Name:           linux-mainline
-Version:        5.3.0
-Release:        10
+Version:        5.6.0.rc1
+Release:        11
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.3.tar.xz
+Source0:        https://git.kernel.org/torvalds/t/linux-5.6-rc1.tar.gz
 Source1:        config
 Source2:        cmdline
 
@@ -27,7 +27,16 @@ Requires: linux-mainline-license = %{version}-%{release}
 %define debug_package %{nil}
 %define __strip /bin/true
 
-# kconfig: linux-5.2.13-832
+# kconfig: linux-5.5.4-909
+
+#cve.start cve patches from 0001 to 050
+#cve.end
+
+#mainline: Mainline patches, upstream backport and fixes from 0051 to 0099
+#mainline.end
+
+#Serie.clr 01XX: Clear Linux patches
+#Serie.end
 
 %description
 The Linux kernel.
@@ -65,10 +74,19 @@ Requires:       linux-mainline-extra = %{version}-%{release}
 Requires:       linux-mainline-license = %{version}-%{release}
 
 %description dev
-Linux kernel build files and install script
+Linux kernel build files
 
 %prep
-%setup -q -n linux-5.3
+%setup -q -n linux-5.6-rc1
+
+#cve.patch.start cve patches
+#cve.patch.end
+
+#mainline.patch.start Mainline patches, upstream backport and fixes
+#mainline.patch.end
+
+#Serie.patch.start Clear Linux patches
+#Serie.patch.end
 
 cp %{SOURCE1} .
 
@@ -77,7 +95,7 @@ BuildKernel() {
 
     Target=$1
     Arch=x86_64
-    ExtraVer="-%{release}.${Target}"
+    ExtraVer=".rc1-%{release}.${Target}"
 
     perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = ${ExtraVer}/" Makefile
 
@@ -135,7 +153,7 @@ InstallKernel() {
     ln -s org.clearlinux.${Target}.%{version}-%{release} %{buildroot}/usr/lib/kernel/default-${Target}
 }
 
-# cpio file for i8042 libps2 atkbd
+# cpio file for keyboard drivers
 createCPIO() {
 
     Target=$1
