@@ -4,7 +4,7 @@
 
 Name:           linux-mainline
 Version:        5.6.0.rc4
-Release:        13
+Release:        14
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
