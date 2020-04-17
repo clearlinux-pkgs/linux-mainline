@@ -3,13 +3,13 @@
 #
 
 Name:           linux-mainline
-Version:        5.6.4
-Release:        21
+Version:        5.6.5
+Release:        22
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.6.4.tar.xz
+Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.6.5.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -27,7 +27,7 @@ Requires: linux-mainline-license = %{version}-%{release}
 %define debug_package %{nil}
 %define __strip /bin/true
 
-# kconfig: linux-5.6.4-932
+# kconfig: linux-5.6.5-932
 
 #cve.start cve patches from 0001 to 050
 #cve.end
@@ -77,7 +77,7 @@ Requires:       linux-mainline-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.6.4
+%setup -q -n linux-5.6.5
 
 #cve.patch.start cve patches
 #cve.patch.end
