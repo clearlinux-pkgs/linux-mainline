@@ -3,13 +3,13 @@
 #
 
 Name:           linux-mainline
-Version:        5.6.6
-Release:        23
+Version:        5.7.0.rc2
+Release:        24
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.6.6.tar.xz
+Source0:        https://git.kernel.org/torvalds/t/linux-5.7-rc2.tar.gz
 Source1:        config
 Source2:        cmdline
 
@@ -27,7 +27,7 @@ Requires: linux-mainline-license = %{version}-%{release}
 %define debug_package %{nil}
 %define __strip /bin/true
 
-# kconfig: linux-5.6.6-932
+# kconfig: linux-5.6.6-942
 
 #cve.start cve patches from 0001 to 050
 #cve.end
@@ -77,7 +77,7 @@ Requires:       linux-mainline-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.6.6
+%setup -q -n linux-5.7-rc2
 
 #cve.patch.start cve patches
 #cve.patch.end
@@ -95,8 +95,7 @@ BuildKernel() {
 
     Target=$1
     Arch=x86_64
-    ExtraVer="-%{release}.${Target}"
-    #ExtraVer=".rc6-%{release}.${Target}"
+    ExtraVer=".rc2-%{release}.${Target}"
 
     perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = ${ExtraVer}/" Makefile
 
