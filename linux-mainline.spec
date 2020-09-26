@@ -3,13 +3,13 @@
 #
 
 Name:           linux-mainline
-Version:        5.8.0.rc7
-Release:        34
+Version:        5.9.0.rc6
+Release:        35
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://git.kernel.org/torvalds/t/linux-5.8-rc7.tar.gz
+Source0:        https://git.kernel.org/torvalds/t/linux-5.9-rc6.tar.gz
 Source1:        config
 Source2:        cmdline
 
@@ -27,7 +27,7 @@ Requires: linux-mainline-license = %{version}-%{release}
 %define debug_package %{nil}
 %define __strip /bin/true
 
-# kconfig: linux-5.6.6-942
+# kconfig: linux-5.8.11-988
 
 #cve.start cve patches from 0001 to 050
 #cve.end
@@ -77,7 +77,7 @@ Requires:       linux-mainline-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.8-rc7
+%setup -q -n linux-5.9-rc6
 
 #cve.patch.start cve patches
 #cve.patch.end
