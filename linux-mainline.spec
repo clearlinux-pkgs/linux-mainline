@@ -95,7 +95,7 @@ BuildKernel() {
 
     Target=$1
     Arch=x86_64
-    ExtraVer=".rc7-%{release}.${Target}"
+    ExtraVer=".rc6-%{release}.${Target}"
 
     perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = ${ExtraVer}/" Makefile
 
