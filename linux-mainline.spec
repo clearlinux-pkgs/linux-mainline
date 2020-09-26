@@ -4,7 +4,7 @@
 
 Name:           linux-mainline
 Version:        5.9.0.rc6
-Release:        35
+Release:        36
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
