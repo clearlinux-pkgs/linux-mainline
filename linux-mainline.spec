@@ -3,13 +3,13 @@
 #
 
 Name:           linux-mainline
-Version:        5.9.0.rc7
-Release:        37
+Version:        5.9.0.rc8
+Release:        38
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://git.kernel.org/torvalds/t/linux-5.9-rc7.tar.gz
+Source0:        https://git.kernel.org/torvalds/t/linux-5.9-rc8.tar.gz
 Source1:        config
 Source2:        cmdline
 
@@ -77,7 +77,7 @@ Requires:       linux-mainline-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.9-rc7
+%setup -q -n linux-5.9-rc8
 
 #cve.patch.start cve patches
 #cve.patch.end
@@ -95,7 +95,7 @@ BuildKernel() {
 
     Target=$1
     Arch=x86_64
-    ExtraVer=".rc7-%{release}.${Target}"
+    ExtraVer=".rc8-%{release}.${Target}"
 
     perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = ${ExtraVer}/" Makefile
 
