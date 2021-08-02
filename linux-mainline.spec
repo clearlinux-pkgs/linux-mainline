@@ -3,13 +3,13 @@
 #
 
 Name:           linux-mainline
-Version:        5.14.0.rc3
-Release:        41
+Version:        5.14.0.rc4
+Release:        42
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://git.kernel.org/torvalds/t/linux-5.14-rc3.tar.gz
+Source0:        https://git.kernel.org/torvalds/t/linux-5.14-rc4.tar.gz
 Source1:        config
 Source2:        cmdline
 
@@ -77,7 +77,7 @@ Requires:       linux-mainline-license = %{version}-%{release}
 Linux kernel build files
 
 %prep
-%setup -q -n linux-5.14-rc3
+%setup -q -n linux-5.14-rc4
 
 #cve.patch.start cve patches
 #cve.patch.end
@@ -95,7 +95,7 @@ BuildKernel() {
 
     Target=$1
     Arch=x86_64
-    ExtraVer=".rc3-%{release}.${Target}"
+    ExtraVer=".rc4-%{release}.${Target}"
 
     perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = ${ExtraVer}/" Makefile
 
